@@ -150,6 +150,13 @@ table.tok td b{color:var(--ivory);font-family:Fraunces,serif;font-size:18px;font
  .ticker .track{animation:none}
  .plate figure::after{animation:none}
 }
+/* hero participation buttons */
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+.btn-gold{display:inline-flex;flex-direction:column;align-items:center;gap:3px;background:linear-gradient(180deg,var(--gold-l),var(--gold));color:#171106;padding:15px 36px 13px;border:1px solid #8a6d1f;font-family:Fraunces,serif;font-size:22px;line-height:1;text-decoration:none;box-shadow:0 10px 28px rgba(201,162,39,.25)}
+.btn-gold span{font-family:PM,monospace;font-size:9.5px;letter-spacing:.24em;font-weight:700}
+.btn-gold:hover{filter:brightness(1.07)}
+.btn-ghost{display:inline-flex;align-items:center;padding:14px 30px;border:1px solid var(--line);color:var(--ivory);font-family:Fraunces,serif;font-size:20px;text-decoration:none;background:rgba(11,12,10,.45)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-l)}
 /* house chapters + specimens */
 .house{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,#0d0e0c,#0a0b09);padding:30px 24px 10px}
 .stamp{position:absolute;top:-36px;right:16px;width:104px;height:104px;animation:spin 26s linear infinite;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
