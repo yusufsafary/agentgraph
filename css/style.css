@@ -15,18 +15,36 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.5;z-
 main{position:relative;z-index:1}
 .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
 a{color:var(--gold-l)}
-nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(10,11,9,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--hair)}
-.nav-in{max-width:1180px;margin:0 auto;padding:12px 20px;display:flex;align-items:center;gap:12px}
-.nav-in a.home{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ivory)}
-.nav-in img{width:38px;height:38px;border-radius:9px}
-.brand{font-family:Fraunces,serif;font-weight:700;font-size:21px;letter-spacing:.04em}
-.brand em{color:var(--gold-l);font-style:normal}
-.nav-links{margin-left:auto;display:flex;gap:20px;font-family:PM,monospace;font-size:12px;letter-spacing:.13em}
-.nav-links a{color:var(--bone);text-decoration:none}
-.nav-links a:hover,.nav-links a.on{color:var(--gold-l)}
-@media(max-width:760px){.nav-links a:nth-child(n+4){display:none}}
-@media(max-width:480px){.nav-links{gap:14px}.nav-links a:nth-child(3){display:none}}
-.hero{position:relative;padding:126px 0 0;overflow:hidden}
+nav.mast{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(8,9,8,.92);backdrop-filter:blur(12px)}
+.mast-in{max-width:1180px;margin:0 auto;padding:0 20px;height:66px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.mast-side{display:flex;gap:22px;font-family:PM,monospace;font-size:11.5px;letter-spacing:.16em}
+.mast-side.right{justify-content:flex-end;align-items:center}
+.mast-side a{color:var(--bone);text-decoration:none;padding:4px 0}
+.mast-side a:hover,.mast-side a.on{color:var(--gold-l)}
+.mast-core{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--ivory)}
+.mast-core .w{font-family:Fraunces,serif;font-weight:700;font-size:23px;letter-spacing:.14em}
+.mast-core .w.g{color:var(--gold-l)}
+.medal{width:78px;height:78px;border-radius:50%;background:#0a0b09;border:1px solid var(--gold);
+ box-shadow:0 0 0 5px #0a0b09,0 0 0 6px rgba(201,162,39,.45),0 14px 28px rgba(0,0,0,.55);
+ display:flex;align-items:center;justify-content:center;transform:translateY(14px);flex:none}
+.medal img{width:62px;height:62px;object-fit:contain}
+.sealchip{display:flex;align-items:center;gap:8px;border:1px solid var(--line);padding:7px 11px;font-family:PM,monospace;font-size:10.5px;letter-spacing:.14em;color:var(--gold-l);white-space:nowrap}
+.sealchip i{width:7px;height:7px;background:var(--gold-l);transform:rotate(45deg);display:block;flex:none}
+.mast-rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold) 18%,var(--gold) 82%,transparent);opacity:.55}
+.mast-links{display:none}
+@media(max-width:860px){
+ .mast-side{display:none}
+ .mast-in{grid-template-columns:1fr;justify-items:center;height:60px}
+ .mast-core .w{font-size:19px}
+ .medal{width:64px;height:64px;transform:translateY(5px)}
+ .medal img{width:50px;height:50px}
+ .mast-links{display:flex;gap:20px;overflow-x:auto;padding:17px 20px 10px;font-family:PM,monospace;font-size:11px;letter-spacing:.15em;scrollbar-width:none}
+ .mast-links::-webkit-scrollbar{display:none}
+ .mast-links a{color:var(--bone);text-decoration:none;white-space:nowrap}
+ .mast-links a.on{color:var(--gold-l)}
+}
+.hero{position:relative;padding:150px 0 0;overflow:hidden}
+@media(max-width:860px){.hero{padding-top:172px}}
 #sky{position:absolute;inset:0;width:100%;height:100%}
 .hero-in{position:relative;z-index:2;text-align:center;padding:0 20px}
 .kicker{font-family:PM,monospace;font-size:12px;letter-spacing:.32em;color:var(--gold-l)}
@@ -82,7 +100,8 @@ section.blk{padding:84px 0 0}
 .pool .big{font-family:Fraunces,serif;font-size:clamp(29px,6vw,52px);font-weight:600}
 .pool .big .it{font-style:italic;color:var(--gold-l)}
 .pool p{color:var(--bone);margin-top:10px;font-size:15.5px;line-height:1.55}
-.page{padding:128px 0 0}
+.page{padding:150px 0 0}
+@media(max-width:860px){.page{padding-top:172px}}
 .page h1{font-size:clamp(38px,7.5vw,72px);text-align:left;margin:14px 0 8px}
 .page .lede{color:var(--bone);font-size:17px;line-height:1.6;max-width:720px}
 .prose{max-width:760px;margin-top:34px}
