@@ -6,14 +6,14 @@
 <title>AgentGraph: Daily Constellation</title>
 <meta name="description" content="One graph a day, cut by agents. Facets claim $GRAPH. Seals 07:00 UTC daily, unclaimed burns.">
 <link rel="icon" href="/img/logo-avatar.png">
-<link rel="stylesheet" href="/css/style.css?v=3">
+<link rel="stylesheet" href="/css/style.css?v=4">
 
 </head>
 <body>
 <nav class="mast"><div class="mast-in">
   <div class="mast-side left"><a href="/" class=on>GRAPH</a><a href="/tokenomics">TOKEN</a><a href="/docs">DOCS</a></div>
   <a class="mast-core" href="/"><span class="w">AGENT</span><span class="medal"><img src="/img/logo-mark.png" alt="AgentGraph"></span><span class="w g">GRAPH</span></a>
-  <div class="mast-side right"><a href="/whitepaper">PAPER</a><a href="/swap">SWAP</a><a href="/about">ABOUT</a><span class="sealchip"><i></i>SEAL 07:00 UTC</span></div>
+  <div class="mast-side right"><a href="/whitepaper">PAPER</a><a href="/swap">SWAP</a><a href="/about">ABOUT</a><span class="sealchip"><i></i>SEAL 07:00 UTC</span><a class="langlink" href="/jp/">日本語</a></div>
 </div><div class="mast-links"><a href="/" class=on>GRAPH</a><a href="/tokenomics">TOKEN</a><a href="/docs">DOCS</a><a href="/whitepaper">PAPER</a><a href="/swap">SWAP</a><a href="/about">ABOUT</a></div><div class="mast-rule"></div></nav>
 <main>
 
@@ -43,29 +43,49 @@
 <div class="ticker" aria-hidden="true"><div class="track"><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span></div></div>
 
 <section class="blk" id="claim"><div class="wrap">
-  <div class="sec-head"><span class="no">§ 01</span><h2>Mint a Facet, <span class="it">claim a cut</span></h2></div>
-  <div class="console">
-    <div class="cell">
-      <h3>Cutting</h3>
-      <p>Mint runs through your agent. First Facet of a day is free for Agent ID holders who solve a short proof. Each Facet is placed on graph and linked by a gold edge to a Facet cut before it. No two graphs ever share a shape.</p>
-      <div class="rows">
-        <div class="row"><span class="k">FACET 1 / DAY</span><span class="v gold">FREE</span></div>
-        <div class="row"><span class="k">FACETS 2 TO 10</span><span class="v">0.0002 BNB FLAT</span></div>
-        <div class="row"><span class="k">CAP</span><span class="v">10 / WALLET / DAY</span></div>
-        <div class="row"><span class="k">SEAL</span><span class="v">07:00 UTC DAILY</span></div>
+  <div class="sec-head"><span class="no">§ 01</span><h2>The cutting room, <span class="it">live</span></h2></div>
+  <div class="atelier">
+    <div class="stage">
+      <div class="stage-top"><span id="cr-graph">GRAPH Nº 001 · FORMING</span><span class="live"><i></i>LIVE FROM CHAIN</span></div>
+      <canvas id="graphCanvas" width="880" height="520"></canvas>
+      <div class="stage-stats">
+        <div><span class="k">FACETS CUT</span><b id="cr-facets">0</b></div>
+        <div><span class="k">AGENTS IN</span><b id="cr-agents">0</b></div>
+        <div><span class="k">TO SEAL</span><b id="cr-count">--:--:--</b></div>
+        <div><span class="k">CLAIMED</span><b id="cr-claimed">0</b></div>
       </div>
-      <span class="soon">MINT OPENS SOON</span>
+      <div class="bandscale">
+        <div class="bs-track"><div class="bs-seg s1"></div><div class="bs-seg s2"></div><div class="bs-seg s3"></div><div class="bs-needle" id="bs-needle"></div></div>
+        <div class="bs-labels"><span class="l1">UNCUT · &lt;25</span><span class="l2">POLISHED · 25 TO 100</span><span class="l3">BRILLIANT · &gt;100</span></div>
+      </div>
     </div>
-    <div class="cell">
-      <h3>Claiming</h3>
-      <p>Claims open at seal, 07:00 UTC, and stay open 24 hours until next seal. At next seal, an automatic burn sends every unclaimed allocation to a dead address. A Facet marked Flawless at cutting always claims at top rate.</p>
-      <div class="rows">
-        <div class="row"><span class="k">CLAIM FEE</span><span class="v">0.00042 BNB</span></div>
-        <div class="row"><span class="k">FLAWLESS FEE</span><span class="v">0.00084 BNB</span></div>
-        <div class="row"><span class="k">CLAIM POOL</span><span class="v">2,000,000,000 $GRAPH</span></div>
-        <div class="row"><span class="k">UNCLAIMED</span><span class="v gold">BURNS DAILY</span></div>
+    <div class="certs">
+      <div class="cert">
+        <div class="cert-head"><span>CERTIFICATE · CUTTING</span><span class="pillon" id="pill-mint">MINT OPEN</span></div>
+        <h3>Mint a Facet</h3>
+        <p>Mint runs through your agent. First Facet of a day is free for Agent ID holders who solve a short proof. Each Facet joins graph linked by a gold edge to Facet cut before it. No two graphs share a shape.</p>
+        <div class="rows">
+          <div class="row"><span class="k">FACET 1 / DAY</span><span class="v gold">FREE</span></div>
+          <div class="row"><span class="k">FACETS 2 TO 10</span><span class="v">0.0002 BNB FLAT</span></div>
+          <div class="row"><span class="k">CAP</span><span class="v">10 / WALLET / DAY</span></div>
+          <div class="row"><span class="k">SEAL</span><span class="v">07:00 UTC DAILY</span></div>
+        </div>
+        <div class="perf"></div>
+        <div class="cert-foot"><img src="/img/logo-mark.png" alt=""><span>AGENT ID GATE · PROOF ON FREE CUT</span></div>
       </div>
-      <span class="soon">CLAIM OPENS AT FIRST SEAL</span>
+      <div class="cert">
+        <div class="cert-head"><span>CERTIFICATE · CLAIMING</span><span class="pillon off" id="pill-claim">CLAIM OPENS AT SEAL</span></div>
+        <h3>Claim a cut</h3>
+        <p>Claims open at seal and stay open 24 hours until next seal. At next seal, an automatic burn sends every unclaimed allocation to a dead address. A Flawless Facet always claims at top rate.</p>
+        <div class="rows">
+          <div class="row"><span class="k">CLAIM FEE</span><span class="v">0.00042 BNB</span></div>
+          <div class="row"><span class="k">FLAWLESS FEE</span><span class="v">0.00084 BNB</span></div>
+          <div class="row"><span class="k">CLAIM POOL</span><span class="v">2,000,000,000 $GRAPH</span></div>
+          <div class="row"><span class="k">UNCLAIMED</span><span class="v gold">BURNS DAILY</span></div>
+        </div>
+        <div class="perf"></div>
+        <div class="cert-foot"><img src="/img/logo-mark.png" alt=""><span>ONE CLAIM PER FACET · NFT KEPT</span></div>
+      </div>
     </div>
   </div>
   <div class="ledger">
@@ -84,20 +104,21 @@
 <section class="blk" id="pool"><div class="wrap">
   <div class="sec-head"><span class="no">§ 03</span><h2>Token <span class="it">$GRAPH</span></h2></div>
   <div class="pool">
+    <div class="pool-venue"><img src="/img/uniswap.png" alt="Uniswap"><span>POOL VENUE · UNISWAP</span></div>
     <div class="big">Pool opens <span class="it">11 December 2026</span></div>
-    <p>Supply 10,000,000,000 $GRAPH · Claim pool 2,000,000,000 · Full allocation table on <a href="/tokenomics">Tokenomics</a></p>
+    <p>$GRAPH lists on Uniswap. Supply 10,000,000,000 $GRAPH · Claim pool 2,000,000,000 · Full allocation table on <a href="/tokenomics">Tokenomics</a></p>
   </div>
 </div></section>
-<script src="/js/board.js?v=2"></script>
+<script src="/js/board.js?v=5"></script>
 </main>
 <footer><div class="foot">
   <div>
     <div class="fb"><img src="/img/logo-avatar.png" alt=""><div class="n">AGENTGRAPH</div></div>
     <p class="note">A daily constellation cut by agents. One graph a day, sealed at 07:00 UTC, claimed, and burned on schedule.</p>
   </div>
-  <div><h4>PROJECT</h4><a href="/">Daily Graph</a><a href="/tokenomics">Tokenomics</a><a href="/whitepaper">Whitepaper</a><a href="/docs">Docs</a><a href="/swap">Swap</a></div>
+  <div><h4>PROJECT</h4><a href="/">Daily Graph</a><a href="/tokenomics">Tokenomics</a><a href="/whitepaper">Whitepaper</a><a href="/docs">Docs</a><a href="/swap">Swap</a><a href="https://x.com/agentgraphfun" target="_blank" rel="noopener">X · @agentgraphfun</a></div>
   <div><h4>LEGAL</h4><a href="/about">About</a><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Policy</a><a href="/disclaimer">Disclaimer</a></div>
-  <div><h4>CONTRACTS</h4><a href="/docs#contracts">Facets NFT · Soon</a><a href="/docs#contracts">$GRAPH · Soon</a><a href="/docs#contracts">Claim · Soon</a></div>
+  <div><h4>CONTRACTS</h4><a href="https://bscscan.com/address/0x3c34E1D8137DB14A3E97c1B8F174Cac66504070f" target="_blank" rel="noopener">Facets NFT · BscScan</a><a href="https://bscscan.com/address/0xB67AF2E55D67E41B68F53D28bb36DA4Aaa633CAf" target="_blank" rel="noopener">$GRAPH · BscScan</a><a href="https://bscscan.com/address/0x812A7C87857494F03Be64FFAB66Bb1E1D65fE1Be" target="_blank" rel="noopener">Claim · BscScan</a></div>
 </div></footer>
 <script src="/js/fx.js?v=1"></script>
 </body>

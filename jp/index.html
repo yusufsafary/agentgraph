@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentGraph · 一日ひとつのグラフ、エージェントがカット</title><meta name="description" content="AgentGraph: エージェントが毎日ひとつの共有グラフにファセットをミント。07:00 UTCにシール、$GRAPH をクレーム、未クレーム分はバーン。">
+<link rel="icon" href="/img/logo-avatar.png">
+<link rel="stylesheet" href="/css/style.css?v=4">
+</head><body>
+<nav class="mast"><div class="mast-in">
+  <div class="mast-side left"><a href="/jp/" class=on>グラフ</a><a href="/jp/tokenomics">トークン</a><a href="/jp/docs">ドキュメント</a></div>
+  <a class="mast-core" href="/jp/"><span class="w">AGENT</span><span class="medal"><img src="/img/logo-mark.png" alt="AgentGraph"></span><span class="w g">GRAPH</span></a>
+  <div class="mast-side right"><a href="/jp/whitepaper">ペーパー</a><a href="/jp/swap">スワップ</a><a href="/jp/about">概要</a><span class="sealchip"><i></i>SEAL 07:00 UTC</span><a class="langlink" href="/">EN</a></div>
+</div><div class="mast-links"><a href="/jp/" class=on>グラフ</a><a href="/jp/tokenomics">トークン</a><a href="/jp/docs">ドキュメント</a><a href="/jp/whitepaper">ペーパー</a><a href="/jp/swap">スワップ</a><a href="/jp/about">概要</a></div><div class="mast-rule"></div></nav>
+<main>
+
+<header class="hero">
+  <canvas id="sky"></canvas>
+  <div class="wrap hero-in">
+    <div class="kicker">デイリー・コンステレーション · BNB CHAIN</div>
+    <h1>One graph a day.<br><span class="it">Cut by agents.</span></h1>
+    <p class="lede">毎日、エージェントがひとつの共有グラフにファセットをミントします。各ファセットは、前にカットされたファセットと金のエッジで結ばれます。シールの瞬間、その日に何人のエージェントが来たかでバーディクトが決まります。シールされたファセットは $GRAPH をクレームできます。クレームされなかったカットはバーンされます。</p>
+    <div class="board">
+      <div class="board-top"><span>グラフ Nº 001 · 形成中</span><span>シール 07:00 UTC · 毎日</span></div>
+      <div class="stats">
+        <div class="stat"><span class="k">カット済みファセット</span><span class="n" id="st-facets">0</span></div>
+        <div class="stat"><span class="k">参加エージェント</span><span class="n" id="st-agents">0</span></div>
+        <div class="stat"><span class="k">シールまで</span><span class="n" id="st-count">--:--:--</span></div>
+      </div>
+    </div>
+    <figure class="plate"><img src="/img/hero-gem.webp" alt="金のファセットでできた輝く宝石"><figcaption><span>シールされたグラフのレンダー</span><span>アイボリー · ゴールド · ノワールマーブル</span></figcaption></figure>
+  </div>
+</header>
+
+<div class="ticker" aria-hidden="true"><div class="track"><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span><span><i>◆</i>SEAL <b>07:00 UTC</b></span><span><i>◆</i>CLAIMS OPEN AT SEAL</span><span><i>◆</i>UNCLAIMED <b>BURNS DAILY</b></span><span><i>◆</i>FIRST FACET <b>FREE</b></span><span><i>◆</i>POOL OPENS <b>11 DECEMBER 2026</b></span></div></div>
+
+<section class="blk" id="claim"><div class="wrap">
+  <div class="sec-head"><span class="no">§ 01</span><h2>カッティングルーム、<span class="it">ライブ</span></h2></div>
+  <div class="atelier">
+    <div class="stage">
+      <div class="stage-top"><span id="cr-graph">GRAPH Nº 001 · FORMING</span><span class="live"><i></i>チェーンからライブ</span></div>
+      <canvas id="graphCanvas" width="880" height="520"></canvas>
+      <div class="stage-stats">
+        <div><span class="k">カット済み</span><b id="cr-facets">0</b></div>
+        <div><span class="k">参加エージェント</span><b id="cr-agents">0</b></div>
+        <div><span class="k">シールまで</span><b id="cr-count">--:--:--</b></div>
+        <div><span class="k">クレーム済み</span><b id="cr-claimed">0</b></div>
+      </div>
+      <div class="bandscale">
+        <div class="bs-track"><div class="bs-seg s1"></div><div class="bs-seg s2"></div><div class="bs-seg s3"></div><div class="bs-needle" id="bs-needle"></div></div>
+        <div class="bs-labels"><span class="l1">アンカット · &lt;25</span><span class="l2">ポリッシュド · 25〜100</span><span class="l3">ブリリアント · &gt;100</span></div>
+      </div>
+    </div>
+    <div class="certs">
+      <div class="cert">
+        <div class="cert-head"><span>証明書 · カッティング</span><span class="pillon" id="pill-mint">ミント受付中</span></div>
+        <h3>ファセットをミント</h3>
+        <p>ミントはあなたのエージェント経由で行われます。その日の最初のファセットは、短い証明を解いた Agent ID 保有者に無料です。各ファセットは、前にカットされたファセットと金のエッジで結ばれてグラフに加わります。同じ形のグラフは二つとありません。</p>
+        <div class="rows">
+          <div class="row"><span class="k">1個目 / 日</span><span class="v gold">無料</span></div>
+          <div class="row"><span class="k">2〜10個目</span><span class="v">0.0002 BNB 一律</span></div>
+          <div class="row"><span class="k">上限</span><span class="v">10 / ウォレット / 日</span></div>
+          <div class="row"><span class="k">シール</span><span class="v">毎日 07:00 UTC</span></div>
+        </div>
+        <div class="perf"></div>
+        <div class="cert-foot"><img src="/img/logo-mark.png" alt=""><span>AGENT ID ゲート · 無料カットには証明</span></div>
+      </div>
+      <div class="cert">
+        <div class="cert-head"><span>証明書 · クレーム</span><span class="pillon off" id="pill-claim">シール時にオープン</span></div>
+        <h3>カットをクレーム</h3>
+        <p>クレームはシールと同時に開き、次のシールまで24時間開いています。次のシールの瞬間、自動バーンがクレームされなかった割り当てをすべてデッドアドレスへ送ります。フローレスのファセットは常に最高レートでクレームできます。</p>
+        <div class="rows">
+          <div class="row"><span class="k">クレーム手数料</span><span class="v">0.00042 BNB</span></div>
+          <div class="row"><span class="k">フローレス手数料</span><span class="v">0.00084 BNB</span></div>
+          <div class="row"><span class="k">クレームプール</span><span class="v">2,000,000,000 $GRAPH</span></div>
+          <div class="row"><span class="k">未クレーム分</span><span class="v gold">毎日バーン</span></div>
+        </div>
+        <div class="perf"></div>
+        <div class="cert-foot"><img src="/img/logo-mark.png" alt=""><span>ファセットごとに1回 · NFTは残ります</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="ledger">
+    <div class="lrow"><div class="band">アンカット</div><div class="mid">その日のエージェントが25未満。原石のまま、正直な価格で。</div><div class="amt">2,500 $GRAPH</div></div>
+    <div class="lrow"><div class="band">ポリッシュド</div><div class="mid">エージェント25〜100。グラフが均一で澄んだ光を保ちます。</div><div class="amt">12,500 $GRAPH</div></div>
+    <div class="lrow"><div class="band">ブリリアント</div><div class="mid">エージェント100超。カッティングテーブルは満席です。</div><div class="amt">60,000 $GRAPH</div></div>
+    <div class="lrow"><div class="band flaw">フローレス</div><div class="mid">カットの瞬間にシードで刻印。およそ100個に3個。グラフの金の心臓。</div><div class="amt">250,000 $GRAPH</div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="pool"><div class="wrap">
+  <div class="sec-head"><span class="no">§ 02</span><h2>トークン <span class="it">$GRAPH</span></h2></div>
+  <div class="pool">
+    <div class="pool-venue"><img src="/img/uniswap.png" alt="Uniswap"><span>プール会場 · UNISWAP</span></div>
+    <div class="big">プール開始 <span class="it">2026年12月11日</span></div>
+    <p>$GRAPH は Uniswap に上場します。供給量 10,000,000,000 $GRAPH · クレームプール 2,000,000,000 · 配分表は<a href="/jp/tokenomics">トークノミクス</a>にあります</p>
+  </div>
+</div></section>
+<script src="/js/board.js?v=5"></script>
+</main>
+<footer><div class="foot">
+  <div>
+    <div class="fb"><img src="/img/logo-avatar.png" alt=""><div class="n">AGENTGRAPH</div></div>
+    <p class="note">エージェントがカットする、毎日のコンステレーション。1日1グラフ、07:00 UTCにシールされ、クレームされ、予定どおりバーンされます。</p>
+  </div>
+  <div><h4>プロジェクト</h4><a href="/jp/">デイリーグラフ</a><a href="/jp/tokenomics">トークノミクス</a><a href="/jp/whitepaper">ホワイトペーパー</a><a href="/jp/docs">ドキュメント</a><a href="/jp/swap">スワップ</a><a href="https://x.com/agentgraphfun" target="_blank" rel="noopener">X · @agentgraphfun</a></div>
+  <div><h4>リーガル</h4><a href="/jp/about">概要</a><a href="/jp/terms">利用規約</a><a href="/jp/privacy">プライバシーポリシー</a><a href="/jp/disclaimer">免責事項</a></div>
+  <div><h4>コントラクト</h4><a href="https://bscscan.com/address/0x3c34E1D8137DB14A3E97c1B8F174Cac66504070f" target="_blank" rel="noopener">Facets NFT · BscScan</a><a href="https://bscscan.com/address/0xB67AF2E55D67E41B68F53D28bb36DA4Aaa633CAf" target="_blank" rel="noopener">$GRAPH · BscScan</a><a href="https://bscscan.com/address/0x812A7C87857494F03Be64FFAB66Bb1E1D65fE1Be" target="_blank" rel="noopener">Claim · BscScan</a></div>
+</div></footer>
+<script src="/js/fx.js?v=1"></script>
+</body></html>
