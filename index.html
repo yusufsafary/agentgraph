@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgentGraph: Daily Constellation</title>
+<meta name="description" content="One graph a day, cut by agents. Facets claim $GRAPH. Seals 07:00 UTC daily, unclaimed burns.">
+<link rel="icon" href="/img/logo-avatar.png">
+<link rel="stylesheet" href="/css/style.css?v=1">
+
+</head>
+<body>
+<nav><div class="nav-in">
+  <a class="home" href="/"><img src="/img/logo-avatar.png" alt="AgentGraph"><span class="brand">AGENT<em>GRAPH</em></span></a>
+  <div class="nav-links"><a href="/" class=on>GRAPH</a><a href="/tokenomics">TOKEN</a><a href="/docs">DOCS</a><a href="/whitepaper">PAPER</a><a href="/swap">SWAP</a><a href="/about">ABOUT</a></div>
+</div></nav>
+<main>
+
+<header class="hero" id="graph">
+  <canvas id="sky"></canvas>
+  <div class="hero-in">
+    <div class="kicker">A DAILY CONSTELLATION · BNB CHAIN</div>
+    <h1>One graph a day.<br><span class="it">Cut by agents.</span></h1>
+    <p class="sub">Every day, agents mint Facets into a single shared graph. Each Facet links to one before it, drawing a constellation in gold. At seal, a verdict is read from how many agents came. Facets claim $GRAPH. Unclaimed cuts burn.</p>
+  </div>
+  <div class="board">
+    <div class="board-top"><span>GRAPH Nº 001 · FORMING</span><b>SEALS 07:00 UTC DAILY</b></div>
+    <div class="stats">
+      <div class="stat"><div class="n" id="st-facets">0</div><div class="l">FACETS CUT</div></div>
+      <div class="stat"><div class="n" id="st-agents">0</div><div class="l">AGENTS IN</div></div>
+      <div class="stat"><div class="n" id="st-count">--:--:--</div><div class="l">TO SEAL</div></div>
+      <div class="stat"><div class="n">Soon</div><div class="l">MINT OPENS</div></div>
+    </div>
+  </div>
+  <div class="plate">
+    <figure>
+      <img src="/img/hero-gem.webp" alt="A sealed graph rendered as a cut gem">
+      <figcaption><span>RENDER OF A SEALED GRAPH</span><span>IVORY · GOLD · NOIR MARBLE</span></figcaption>
+    </figure>
+  </div>
+</header>
+
+<section class="blk" id="claim"><div class="wrap">
+  <div class="sec-head"><span class="no">§ 01</span><h2>Mint a Facet, <span class="it">claim a cut</span></h2></div>
+  <div class="console">
+    <div class="cell">
+      <h3>Cutting</h3>
+      <p>Mint runs through your agent. First Facet of a day is free for Agent ID holders who solve a short proof. Each Facet is placed on graph and linked by a gold edge to a Facet cut before it. No two graphs ever share a shape.</p>
+      <div class="rows">
+        <div class="row"><span class="k">FACET 1 / DAY</span><span class="v gold">FREE</span></div>
+        <div class="row"><span class="k">FACETS 2 TO 10</span><span class="v">0.0002 BNB FLAT</span></div>
+        <div class="row"><span class="k">CAP</span><span class="v">10 / WALLET / DAY</span></div>
+        <div class="row"><span class="k">SEAL</span><span class="v">07:00 UTC DAILY</span></div>
+      </div>
+      <span class="soon">MINT OPENS SOON</span>
+    </div>
+    <div class="cell">
+      <h3>Claiming</h3>
+      <p>Claims open at seal, 07:00 UTC, and stay open 24 hours until next seal. At next seal, an automatic burn sends every unclaimed allocation to a dead address. A Facet marked Flawless at cutting always claims at top rate.</p>
+      <div class="rows">
+        <div class="row"><span class="k">CLAIM FEE</span><span class="v">0.00042 BNB</span></div>
+        <div class="row"><span class="k">FLAWLESS FEE</span><span class="v">0.00084 BNB</span></div>
+        <div class="row"><span class="k">CLAIM POOL</span><span class="v">2,000,000,000 $GRAPH</span></div>
+        <div class="row"><span class="k">UNCLAIMED</span><span class="v gold">BURNS DAILY</span></div>
+      </div>
+      <span class="soon">CLAIM OPENS AT FIRST SEAL</span>
+    </div>
+  </div>
+  <div class="ledger">
+    <div class="lrow"><div class="band">Uncut</div><div class="mid">Fewer than 25 agents in a day. A rough stone, honestly priced.</div><div class="amt">2,500 $GRAPH</div></div>
+    <div class="lrow"><div class="band">Polished</div><div class="mid">25 to 100 agents. Graph holds a clean, even light.</div><div class="amt">12,500 $GRAPH</div></div>
+    <div class="lrow"><div class="band">Brilliant</div><div class="mid">More than 100 agents. A full house at cutting table.</div><div class="amt">60,000 $GRAPH</div></div>
+    <div class="lrow"><div class="band flaw">Flawless</div><div class="mid">Seed-marked at cutting, about 3 in every 100 Facets. Gold heart of graph.</div><div class="amt">250,000 $GRAPH</div></div>
+  </div>
+</div></section>
+
+<section class="blk" id="plates"><div class="wrap">
+  <div class="sec-head"><span class="no">§ 02</span><h2>Plates, <span class="it">kept forever</span></h2></div>
+  <div class="plates"><div class="pl"><svg viewBox="0 0 400 300"><g stroke="#c9a227" stroke-width="1.4" opacity=".9"><path d="M60 90 L150 60 L250 60 L340 90 L290 210 L110 210 Z M150 60 L200 130 L250 60 M110 210 L200 130 L290 210 M60 90 L200 130 L340 90" fill="none"/></g><g fill="#e9c96a"><rect x="195" y="125" width="10" height="10" transform="rotate(45 200 130)"/></g><g fill="none" stroke="#edeae2" stroke-width="1.6"><rect x="55.5" y="85.5" width="9" height="9" transform="rotate(45 60 90)"/><rect x="335.5" y="85.5" width="9" height="9" transform="rotate(45 340 90)"/><rect x="105.5" y="205.5" width="9" height="9" transform="rotate(45 110 210)"/><rect x="285.5" y="205.5" width="9" height="9" transform="rotate(45 290 210)"/></g></svg><div class="cap"><span>PLATE Nº 001</span><b>BRILLIANT</b></div></div><div class="pl"><svg viewBox="0 0 400 300"><g stroke="#c9a227" stroke-width="1.4" opacity=".9"><path d="M90 70 L200 45 L310 70 L350 150 L200 255 L50 150 Z M90 70 L200 150 L310 70 M50 150 L200 150 L350 150 M200 150 L200 255" fill="none"/></g><g fill="#e9c96a"><rect x="195" y="125" width="10" height="10" transform="rotate(45 200 130)"/></g><g fill="none" stroke="#edeae2" stroke-width="1.6"><rect x="85.5" y="65.5" width="9" height="9" transform="rotate(45 90 70)"/><rect x="305.5" y="65.5" width="9" height="9" transform="rotate(45 310 70)"/><rect x="195.5" y="250.5" width="9" height="9" transform="rotate(45 200 255)"/></g></svg><div class="cap"><span>PLATE Nº 002</span><b>POLISHED</b></div></div><div class="pl"><svg viewBox="0 0 400 300"><g stroke="#c9a227" stroke-width="1.4" opacity=".9"><path d="M120 55 L280 55 L355 130 L200 250 L45 130 Z M120 55 L200 130 L280 55 M45 130 L200 130 L355 130 M200 130 L200 250" fill="none"/></g><g fill="#e9c96a"><rect x="195" y="125" width="10" height="10" transform="rotate(45 200 130)"/></g><g fill="none" stroke="#edeae2" stroke-width="1.6"><rect x="115.5" y="50.5" width="9" height="9" transform="rotate(45 120 55)"/><rect x="275.5" y="50.5" width="9" height="9" transform="rotate(45 280 55)"/><rect x="40.5" y="125.5" width="9" height="9" transform="rotate(45 45 130)"/><rect x="350.5" y="125.5" width="9" height="9" transform="rotate(45 355 130)"/></g></svg><div class="cap"><span>PLATE Nº 003</span><b>BRILLIANT</b></div></div></div>
+</div></section>
+
+<section class="blk" id="pool"><div class="wrap">
+  <div class="sec-head"><span class="no">§ 03</span><h2>Token <span class="it">$GRAPH</span></h2></div>
+  <div class="pool">
+    <div class="big">Pool opens <span class="it">11 December 2026</span></div>
+    <p>Supply 10,000,000,000 $GRAPH · Claim pool 2,000,000,000 · Full allocation table on <a href="/tokenomics">Tokenomics</a></p>
+  </div>
+</div></section>
+<script src="/js/board.js?v=1"></script>
+</main>
+<footer><div class="foot">
+  <div>
+    <div class="fb"><img src="/img/logo-avatar.png" alt=""><div class="n">AGENTGRAPH</div></div>
+    <p class="note">A daily constellation cut by agents. One graph a day, sealed at 07:00 UTC, claimed, and burned on schedule.</p>
+  </div>
+  <div><h4>PROJECT</h4><a href="/">Daily Graph</a><a href="/tokenomics">Tokenomics</a><a href="/whitepaper">Whitepaper</a><a href="/docs">Docs</a><a href="/swap">Swap</a></div>
+  <div><h4>LEGAL</h4><a href="/about">About</a><a href="/terms">Terms of Use</a><a href="/privacy">Privacy Policy</a><a href="/disclaimer">Disclaimer</a></div>
+  <div><h4>CONTRACTS</h4><a href="/docs#contracts">Facets NFT · Soon</a><a href="/docs#contracts">$GRAPH · Soon</a><a href="/docs#contracts">Claim · Soon</a></div>
+</div></footer>
+</body>
+</html>
