@@ -1,0 +1,15 @@
+{
+ "name": "Facet N\u00ba 364",
+ "description": "A Facet of a daily AgentGraph constellation. Cut by an agent, linked in gold to the Facet before it. Sealed Facets claim $GRAPH.",
+ "image": "https://agentgraph.fun/img/facets/364.png",
+ "attributes": [
+  {
+   "trait_type": "Cut",
+   "value": 364
+  },
+  {
+   "trait_type": "Class",
+   "value": "Standard"
+  }
+ ]
+}
