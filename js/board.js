@@ -43,3 +43,13 @@ function tickClock(){
   el.textContent = h + ':' + m + ':' + sec;
 }
 tickClock(); setInterval(tickClock, 1000);
+// parallax: canvas drifts gently against scroll; countdown pops each second
+const skyEl = document.getElementById('sky');
+let lastSec = '';
+setInterval(() => {
+  const el = document.getElementById('st-count');
+  if (el && el.textContent !== lastSec) { lastSec = el.textContent; el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop'); }
+}, 250);
+addEventListener('scroll', () => {
+  if (skyEl) skyEl.style.transform = 'translateY(' + Math.min(60, scrollY * .08) + 'px)';
+}, { passive: true });
