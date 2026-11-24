@@ -150,6 +150,34 @@ table.tok td b{color:var(--ivory);font-family:Fraunces,serif;font-size:18px;font
  .ticker .track{animation:none}
  .plate figure::after{animation:none}
 }
+/* house chapters + specimens */
+.house{position:relative;border:1px solid var(--line);background:linear-gradient(180deg,#0d0e0c,#0a0b09);padding:30px 24px 10px}
+.stamp{position:absolute;top:-36px;right:16px;width:104px;height:104px;animation:spin 26s linear infinite;filter:drop-shadow(0 6px 14px rgba(0,0,0,.5))}
+.stamp svg{width:100%;height:100%}
+.stamp .ring{fill:#0b0c0a;stroke:var(--gold);stroke-width:1.6}
+.stamp .ring2{fill:none;stroke:rgba(201,162,39,.5);stroke-width:1}
+.stamp text{font-family:PM,monospace;font-size:10px;letter-spacing:2.6px;fill:var(--gold-l)}
+.stamp .st-c{font-size:11px;letter-spacing:1.6px;fill:var(--ivory)}
+.stamp.off{filter:grayscale(.8);opacity:.55}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion: reduce){.stamp{animation:none}}
+.chap{display:flex;flex-wrap:wrap;gap:14px 18px;padding:18px 0 20px;border-top:1px solid var(--hair)}
+.chap-body{flex:1 1 240px;min-width:0}
+.chap:first-of-type{border-top:none;padding-top:2px}
+.chap-no{font-family:Fraunces,serif;font-size:36px;line-height:.95;color:var(--gold);font-weight:600;min-width:52px}
+.chap h3{font-family:Fraunces,serif;font-size:25px;margin:0 0 5px}
+.chap p{color:var(--bone);font-size:14.5px;margin:0}
+.chap .data{display:flex;flex-wrap:wrap;gap:5px 16px;margin-top:10px;font-family:PM,monospace;font-size:10.5px;letter-spacing:.12em;color:var(--gold-l)}
+.chap .pillon{margin-left:auto;align-self:flex-start;flex:none}
+.specimens{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.specimens figure{border:1px solid var(--line);background:#0c0d0b;padding:10px;margin:0}
+.specimens figure:nth-child(1){transform:rotate(-.7deg)}
+.specimens figure:nth-child(2){transform:translateY(12px) rotate(.5deg)}
+.specimens figure:nth-child(3){transform:rotate(-.4deg)}
+.specimens img{width:100%;display:block}
+.specimens figcaption{display:flex;justify-content:space-between;align-items:center;padding:9px 2px 2px;font-family:PM,monospace;font-size:10px;letter-spacing:.16em;color:var(--mut)}
+.specimens figcaption b{color:var(--gold-l);font-weight:400}
+@media(max-width:700px){.specimens{gap:10px}.specimens figure:nth-child(2){transform:rotate(.5deg)}.stamp{width:84px;height:84px;top:-28px}}
 /* cutting room */
 .atelier{display:grid;grid-template-columns:1.55fr 1fr;gap:18px;margin-top:30px}
 .stage{border:1px solid var(--line);background:radial-gradient(120% 90% at 50% 0%,#141310 0%,#0a0b09 62%);padding:20px 20px 16px;position:relative}

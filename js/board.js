@@ -132,7 +132,7 @@ async function refresh() {
     const bl = $("board-graph"); if (bl) bl.textContent = "GRAPH Nº " + pad3(g) + " · FORMING";
     const needle = $("bs-needle");
     if (needle) needle.style.left = Math.min(100, (agents / 120) * 100) + "%";
-    const pm = $("pill-mint"); if (pm) { pm.textContent = JA ? (mintOpen ? "ミント受付中" : "ミント停止中") : (mintOpen ? "MINT OPEN" : "MINT PAUSED"); pm.classList.toggle("off", !mintOpen); }
+    const pm = $("stamp-mint"); if (pm) { pm.classList.toggle("off", !mintOpen); const st = $("stamp-state"); if (st) st.textContent = mintOpen ? "OPEN" : "PAUSED"; }
     const pc = $("pill-claim");
     if (pc) {
       const firstSealPassed = Date.now() / 1000 >= 1795503600;
